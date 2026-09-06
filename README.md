@@ -87,12 +87,15 @@ pm2 start ecosystem.config.cjs
 
 Local preview runs on `http://localhost:3000`.
 
+Production demo: https://ai-revenue-os-affiliate.pages.dev
+
 ## Deployment
 
 - **Platform:** Cloudflare Pages
 - **Runtime:** Hono + Cloudflare Workers
 - **Frontend:** Semantic HTML, CSS, and vanilla JavaScript
-- **Production status:** Pending deployment during this implementation session
+- **Production URL:** https://ai-revenue-os-affiliate.pages.dev
+- **Production status:** Active and verified on Cloudflare Pages (BYOK)
 - **Secrets:** Not required
 
 ## Not Implemented by Design
