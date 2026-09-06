@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080d12" />
+  <meta name="description" content="AI Revenue OS Affiliate OS interactive prototype" />
+  <title>AI Revenue OS — Affiliate OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="app-shell" class="app-shell">
+    <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
+      <div class="brand-block">
+        <button class="mobile-close icon-button" data-action="close-sidebar" aria-label="Close navigation"><i class="fa-solid fa-xmark"></i></button>
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div><div class="brand-name">AI REVENUE OS</div><div class="vertical-name">AFFILIATE OS <span>01</span></div></div>
+      </div>
+      <div class="architecture-mini">
+        <span>MASTER OS</span><i class="fa-solid fa-angle-right"></i><span>AFFILIATE LOOP</span>
+      </div>
+      <nav id="main-nav" class="main-nav"></nav>
+      <div class="sidebar-footer">
+        <div class="workspace-card">
+          <div class="workspace-avatar">DW</div>
+          <div><small>WORKSPACE</small><strong>Demo Workspace</strong></div>
+          <i class="fa-solid fa-ellipsis"></i>
+        </div>
+        <div class="demo-lockup"><span class="status-dot"></span><strong>DEMO MODE</strong><small>Prototype / Demo<br>— No production financial actions</small></div>
+      </div>
+    </aside>
+
+    <div id="sidebar-backdrop" class="sidebar-backdrop" data-action="close-sidebar"></div>
+
+    <section class="main-frame">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-button icon-button" data-action="open-sidebar" aria-label="Open navigation"><i class="fa-solid fa-bars-staggered"></i></button>
+          <div id="breadcrumb" class="breadcrumb"></div>
+        </div>
+        <div class="topbar-controls">
+          <button class="context-select hide-mobile"><span>Workspace</span><strong>Demo Workspace</strong><i class="fa-solid fa-chevron-down"></i></button>
+          <button class="context-select hide-tablet"><span>Vertical</span><strong>Affiliate OS</strong><i class="fa-solid fa-chevron-down"></i></button>
+          <button class="date-select"><i class="fa-regular fa-calendar"></i><span class="hide-mobile">Last 30 Days</span><span class="show-mobile">30D</span></button>
+          <button class="icon-button notification-button" data-action="notifications" aria-label="Notifications"><i class="fa-regular fa-bell"></i><span>3</span></button>
+          <button class="user-button" data-action="account-menu" aria-label="Account menu"><span>AR</span><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+      </header>
+
+      <div class="demo-banner"><i class="fa-solid fa-flask"></i><strong>SIMULATED ENVIRONMENT</strong><span>All financial, attribution, and performance values are demo data.</span><span class="banner-right">NO EXTERNAL ACTIONS</span></div>
+      <div id="revenue-stage-bar" class="revenue-stage-bar" aria-label="Revenue loop stages"></div>
+      <main id="page-content" class="page-content" tabindex="-1"></main>
+    </section>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="drawer-root"></div>
+  <div id="toast-root" class="toast-root" aria-live="polite"></div>
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

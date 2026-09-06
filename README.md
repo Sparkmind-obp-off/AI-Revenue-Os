@@ -1,111 +1,119 @@
-# AI Revenue OS
+# AI Revenue OS — Affiliate OS Prototype
 
-**Master Architecture & Source of Truth**
+A high-fidelity, responsive SaaS prototype that demonstrates how **AI Revenue OS** turns affiliate market signals into measurable revenue and helps operators decide what to do next.
 
-AI Revenue OS adalah arsitektur induk untuk membangun sistem operasi revenue yang dapat digunakan lintas vertical bisnis.
+> **Prototype / Demo only.** All financial, attribution, conversion, and performance values are simulated. The application does not connect to payment systems, affiliate networks, social accounts, or production financial infrastructure.
 
-## Purpose
+## Product Goal
 
-Repository ini menjadi **master repository** untuk:
+**AI Revenue OS turns market and affiliate signals into measurable revenue — then helps operators decide what to do next.**
 
-- Master Blueprint AI Revenue OS
-- Revenue Core dan domain contracts
-- Intelligence / AI layer
-- Automation & orchestration principles
-- Shared architecture standards
-- Vertical architecture mapping
-- Execution governance dan traceability
-- Vertical integration contracts and registry
+Affiliate OS demonstrates this operating loop:
 
-Repository ini **bukan** tempat untuk langsung menampung seluruh source code setiap vertical.
+`Signal → Opportunity → Product → Offer → Content → Distribution → Click → Conversion → Commission → Revenue → Performance → AI Optimization → Next Action`
 
-## Core Principle
+## Completed Features
 
-> Build the revenue loop first. Build the operating system from proven revenue loops. AI optimizes the system; AI is not the system.
+- Premium dark-first Revenue Operating System interface
+- Persistent workspace, vertical, date range, and DEMO MODE context
+- Responsive sidebar and mobile navigation
+- Revenue command center with coherent simulated IDR metrics
+- Revenue and commission trend visualizations
+- Opportunity discovery, filters, market signals, and AI scoring
+- Product assessment, product comparison, and local selection state
+- Offer and content workspace with simulated AI recommendations
+- Distribution previews for TikTok, Instagram, YouTube, and website
+- Attribution flow and simulated campaign table
+- Conversion and commission ledger with validation states
+- Product and channel performance ranking
+- AI Revenue Intelligence cards with evidence, impact, confidence, and approval
+- End-to-end revenue trace drawer from revenue to original market signal
+- Loading, success, empty, simulated, toast, modal, drawer, and confirmation states
+- Explicit AI authority boundaries and human approval language
+- Hono health endpoint and Cloudflare Pages build configuration
 
-## Revenue Loop
+## Application Routes
 
-```text
-Market Signal
-  → Research
-  → Validate
-  → Opportunity
-  → Offer / Product
-  → Content / Distribution
-  → Traffic
-  → Lead
-  → Sales / Transaction
-  → Fulfillment
-  → Retention / Upsell / Referral
-  → Revenue Data
-  → AI Optimization
-  → Next Action
+The prototype is a hash-routed single-page application:
+
+- `/#/overview` — landing and revenue command center
+- `/#/revenue` — revenue dashboard
+- `/#/opportunities` — opportunity discovery
+- `/#/products` — product assessment and selection
+- `/#/offers` — offer and content workspace
+- `/#/distribution` — channel distribution preview
+- `/#/attribution` — click and revenue attribution
+- `/#/conversions` — conversion ledger
+- `/#/commissions` — commission state overview
+- `/#/performance` — performance ranking and optimization
+- `/#/recommendations` — AI Revenue Intelligence
+- `/#/integrations` — simulated integration context
+- `/#/settings` — workspace and account context
+- `/api/health` — prototype health response
+
+## Data Architecture
+
+- **Data source:** Local mock data embedded in the frontend
+- **Interaction state:** In-memory browser state
+- **Storage:** None
+- **Financial systems:** None
+- **External API keys / OAuth:** None required
+- **AI behavior:** Simulated recommendations only
+
+The intended prototype flow is:
+
+`UI → Mock Data → Local State → Simulated Interaction → Demo Result`
+
+## User Guide
+
+1. Start at Overview and inspect the visual revenue loop.
+2. Open Opportunity Discovery and review an opportunity.
+3. Select Creator Pro Toolkit on the product assessment screen.
+4. Create an offer and generate simulated AI content recommendations.
+5. Preview distribution channels.
+6. Review attribution and click a row or **Trace Revenue**.
+7. Continue through conversions, commissions, and performance.
+8. Open an AI recommendation, review its evidence, and approve the demo action.
+
+Approval only creates a local confirmation. No external system is modified.
+
+## Development
+
+```bash
+npm install
+npm run build
+pm2 start ecosystem.config.cjs
 ```
 
-## Repository Relationship
+Local preview runs on `http://localhost:3000`.
 
-```text
-AI-Revenue-Os
-│
-├── Master Blueprint
-├── Shared Revenue Core
-├── Intelligence Layer
-├── Automation / Orchestration Standards
-├── Vertical Integration Contracts
-├── Vertical Registry
-└── Execution Governance
-        │
-        ├── Affiliate OS (Vertical #01) → separate repo
-        ├── QIMA → separate repo
-        └── Future Verticals → separate repos
-```
+## Deployment
 
-The verticals remain independent repositories while integrating through shared contracts and platform orchestration.
+- **Platform:** Cloudflare Pages
+- **Runtime:** Hono + Cloudflare Workers
+- **Frontend:** Semantic HTML, CSS, and vanilla JavaScript
+- **Production status:** Pending deployment during this implementation session
+- **Secrets:** Not required
 
-## Platform Integration
+## Not Implemented by Design
 
-Integration standards live under:
+- Real affiliate network integrations
+- Production database or financial ledger
+- Payment or payout processing
+- Real social publishing
+- Autonomous AI execution
+- Real transaction ingestion
+- Authentication or multi-tenant authorization
 
-`docs/03_PLATFORM_INTEGRATION/`
+## Architecture Documentation
 
-Key contracts:
+The governing master architecture remains available under `docs/`, including the master blueprint, execution standards, vertical contracts, platform integration, and audits.
 
-- `01_VERTICAL_INTEGRATION_STANDARD.md`
-- `02_VERTICAL_API_CONTRACT.md`
-- `03_VERTICAL_REGISTRY.md`
-- `04_ORCHESTRATION_AND_MCP_PLUGIN_STANDARD.md`
+## Recommended Next Steps
 
-**API is the primary integration boundary.** Events/webhooks and orchestration are used where needed. MCP and plugin manifests are optional interfaces for AI/tool discovery and interaction, not replacements for domain APIs.
+1. Conduct stakeholder usability testing on the end-to-end demo journey.
+2. Validate the Affiliate OS domain model and event contracts.
+3. Implement the smallest reliable affiliate money loop in a separate production vertical repository.
+4. Add production storage and integrations only after security, tenancy, integrity, idempotency, and observability gates are approved.
 
-## Current Priority
-
-1. Establish Master Blueprint
-2. Audit existing Affiliate OS foundation
-3. Establish vertical integration contract
-4. Implement the smallest reliable Affiliate Money Loop
-5. Integrate and validate the first vertical through the contract
-6. Verify end-to-end revenue traceability
-7. Harden security, tenancy, integrity, idempotency, and observability
-8. Add AI optimization only around proven revenue data and workflows
-
-## Important Boundaries
-
-- GitHub is the engineering source of truth.
-- Database is the source of truth for financial and operational state.
-- AI is an intelligence layer, not a financial authority.
-- Make / APIs / Workers / Queues execute workflows but should not own core business-domain truth.
-- Human approval is required for publishing, campaigns, pricing, and other high-impact actions.
-- Money movement, refunds, permissions/security, and destructive production actions require explicit authorization.
-- Shared core extraction happens only after semantics and contracts are stable and reusable by at least two verticals.
-
-## Master Blueprint
-
-See:
-
-`docs/00_MASTER_BLUEPRINT/AI_REVENUE_OS_MASTER_BLUEPRINT.md`
-
-## Status
-
-**v1.0 — Master architecture baseline + vertical integration contract**
-
-This repository defines the governing architecture. It does not automatically authorize implementation of future phases; each phase must pass its own scope, readiness, testing, and acceptance gates.
+_Last updated: 2026-09-06_
